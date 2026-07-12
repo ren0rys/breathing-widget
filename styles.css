@@ -7,34 +7,56 @@ body {
     width: 100%;
     height: 100%;
     margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
-
 
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "PT+Serif", serif;
-    background: #cdd98d;
+
+    font-family: "PT Serif", serif;
+    background: transparent;
+}
+.widget {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 16px;
+    overflow: hidden;
 }
 
 
 .breathing-container {
-    height: 280px;
+    width: 100%;
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 0;
 }
 
 .breathing-circle {
-    width: 130px;
-    height: 130px;
+    position: relative;
+    z-index: 2;
+
+    width: 54%;
+    height: 54%;
+    aspect-ratio: 1 / 1;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
     border-radius: 50%;
+
 
     background: linear-gradient(
         135deg,
@@ -44,10 +66,10 @@ body {
     );
 
     color: #e0e8b0c7;
-    font-size: 18px;
-
+    
     box-shadow: 0 8px 30px rgba(70, 130, 110, 0.25);
-
+    font-size: clamp(14px, 4vw, 19px);
+    font-weight: 700;
     transform: scale(1);
 }
 
@@ -56,96 +78,51 @@ body {
 }
 
 @keyframes breathing {
-    /* Inicio */
     0% {
         transform: scale(1);
     }
 
-    /* Termina de expandirse a los 7 segundos */
     36.84% {
-        transform: scale(1.7);
+        transform: scale(1.45);
     }
 
-    /* Se mantiene expandido durante 4 segundos */
     57.89% {
-        transform: scale(1.7);
+        transform: scale(1.45);
     }
 
-    /* Regresa al tamaño original durante 8 segundos */
     100% {
         transform: scale(1);
     }
 }
 
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 18px;
-}
-
-button {
-    margin-top: 2cm;
-    min-width: 100px;
-    padding: 12px 20px;
-
-    border: none;
-    border-radius: 14px;
-    font-family: "PT Serif", serif;
-    font-size: 16px;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.2s,
-        opacity 0.2s;
-}
-
-button:hover {
-    transform: translateY(-2px);
-}
-
-button:active {
-    transform: scale(0.96);
-}
-
-#stopButton {
-    background: #cba4aa;
-    color: #770523;
-}
-
-#startButton {
-    background: #f08a59;
-    color: #770523;
-}
 .orbit-container {
     position: relative;
-
-    width: 240px;
-    height: 240px;
-
+    width: min(65vw, 65vh, 240px);
+    height: min(65vw, 65vh, 240px);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .orbit {
     position: absolute;
+    z-index: 3;
 
-    width: 300px;
-    height: 300px;
+    width: 120%;
+    height: 120%;
 
     border-radius: 50%;
-
     pointer-events: none;
 }
 .orbit-circle {
     position: absolute;
 
-    width: 50px;
-    height: 50px;
+    width: clamp(40px, 5%, 18px);
+    aspect-ratio: 1 / 1;
 
-    top: -40px;
+    top: 0;
     left: 50%;
+
+    transform: translate(-50%, -50%);
 
     border-radius: 50%;
 
