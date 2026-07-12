@@ -15,7 +15,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-family: "PT Serif", serif;
     background: transparent;
 }
@@ -28,11 +27,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     padding: 16px;
     overflow: hidden;
 }
-
 
 .breathing-container {
     width: 100%;
@@ -46,27 +43,21 @@ body {
 .breathing-circle {
     position: relative;
     z-index: 2;
-
     width: 54%;
     height: 54%;
     aspect-ratio: 1 / 1;
-
     display: flex;
     justify-content: center;
     align-items: center;
 
     border-radius: 50%;
-
-
     background: linear-gradient(
         135deg,
         #8b162b,
         #5a0e1d
         
     );
-
     color: #e0e8b0c7;
-    
     box-shadow: 0 8px 30px rgba(70, 130, 110, 0.25);
     font-size: clamp(14px, 4vw, 19px);
     font-weight: 700;
