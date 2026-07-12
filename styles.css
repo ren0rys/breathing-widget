@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "PT+Serif", serif;
+    background: #cdd98d;
+}
+
+
+.breathing-container {
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.breathing-circle {
+    width: 130px;
+    height: 130px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #8b162b,
+        #5a0e1d
+        
+    );
+
+    color: #e0e8b0c7;
+    font-size: 18px;
+
+    box-shadow: 0 8px 30px rgba(70, 130, 110, 0.25);
+
+    transform: scale(1);
+}
+
+.breathing-circle.active {
+    animation: breathing 19s ease-in-out infinite;
+}
+
+@keyframes breathing {
+    /* Inicio */
+    0% {
+        transform: scale(1);
+    }
+
+    /* Termina de expandirse a los 7 segundos */
+    36.84% {
+        transform: scale(1.7);
+    }
+
+    /* Se mantiene expandido durante 4 segundos */
+    57.89% {
+        transform: scale(1.7);
+    }
+
+    /* Regresa al tamaño original durante 8 segundos */
+    100% {
+        transform: scale(1);
+    }
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+button {
+    margin-top: 2cm;
+    min-width: 100px;
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 14px;
+    font-family: "PT Serif", serif;
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        opacity 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+#stopButton {
+    background: #cba4aa;
+    color: #770523;
+}
+
+#startButton {
+    background: #f08a59;
+    color: #770523;
+}
+.orbit-container {
+    position: relative;
+
+    width: 240px;
+    height: 240px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.orbit {
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+.orbit-circle {
+    position: absolute;
+
+    width: 50px;
+    height: 50px;
+
+    top: -40px;
+    left: 50%;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #f08a59,
+        #770523
+        
+        
+    );
+
+    transform: translateX(-50%);
+}
+.orbit.active {
+    animation: orbitRotation 19s linear infinite;
+}
+
+@keyframes orbitRotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
